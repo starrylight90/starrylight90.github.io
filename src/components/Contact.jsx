@@ -36,7 +36,7 @@ const handleSubmit = (e) => {
     {
       from_name: form.name,
       to_name: 'Swayam Pendgaonkar',
-      from_email: form.email,
+      email: form.email,
       to_email: 'swayam.pendgaonkar@gmail.com',
       message: form.message,
     },

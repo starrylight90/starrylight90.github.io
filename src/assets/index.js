@@ -3,7 +3,7 @@ import backend from "./backend.png";
 import creator from "./creator.png";
 import mobile from "./mobile.png";
 import web from "./web.png";
-import github from "./github.png";
+import github from "./tech/github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
@@ -32,6 +32,10 @@ import tesla from "./company/tesla.png";
 import frameskip from "./company/frameskip.png";
 import offmind from "./company/offmind.png";
 import logo from './company/logo.png';
+import apmm from './company/apmm.png';
+import veda from './company/veda.png';
+import phc from './company/phc.jpeg';
+import s2 from './company/s2.png';
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -39,6 +43,13 @@ import tripguide from "./tripguide.png";
 import feedback_system from "./feedback_system.png";
 import object_detection from "./object_detection_upload.png";
 import mnnist from "./mnnist.png";
+import java from "./tech/java.jpeg";
+import fastapi from "./tech/fastapi.png";
+import flutter from "./tech/flutter.png";
+import kubernetes from "./tech/kubernetes.png";
+import tflite from "./tech/tflite.png";
+import sitpune from "./company/sit.png";
+import sitdisplay from "./company/sit-display.png";
 
 export {
   logo,
@@ -71,10 +82,21 @@ export {
   tesla,
   frameskip,
   offmind,
+  apmm,
+  phc,
+  s2,
+  veda,
   carrent,
   jobit,
   tripguide,
   feedback_system,
   object_detection,
   mnnist,
+  java,
+  fastapi,
+  flutter,
+  kubernetes,
+  tflite,
+  sitpune,
+  sitdisplay
 };

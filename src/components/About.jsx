@@ -23,7 +23,7 @@ const ServiceCard = ({index, title, icon, link}) => {
         }}
         className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
         >
-          <img src={icon} alt={title} className="w-16 h-16 object-contain" />
+          <img src={icon} alt={title} className="w-36 h-36 object-contain" />
           <h3 className="text-white text-[20px] font-bold text-center">{title}</h3>
         </div>
 
@@ -46,9 +46,9 @@ const About = () => {
     variants={fadeIn("","",0.1,1)}
     className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
     >
-I'm an experienced developer proficent in Python, Java, PHP, MYSQL, with limited experience in frameworks 
-like React.js, Three.js and MERN stack. I create efficient, scalable, user friendly solutions. I have a  collaborative
- approach to understand the client needs and bring ideas to life. I seek perfection to bridge tech knowledge for societal betterment.
+I'm a full-stack engineer and technical leader with experience across Python, Java, and modern web stacks like React.js and Node.js. 
+My work bridges cutting-edge technology with meaningful impact - from leading large engineering teams to building affordable assistive 
+devices for blind and deaf-blind individuals. I believe in fast iteration, human-centered design, and tech that's built to serve.
 
     </motion.p>
     <div className="mt-20 flex flex-wrap gap-10">

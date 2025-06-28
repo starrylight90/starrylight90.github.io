@@ -32,6 +32,18 @@ import {
     logo,
     frameskip,
     offmind,
+    apmm,
+    phc,
+    s2,
+    veda,
+    java,
+    fastapi,
+    flutter,
+    kubernetes,
+    tflite,
+    github,
+    sitpune,
+    sitdisplay
   } from "../assets";
   
 
@@ -48,232 +60,206 @@ import {
     {
       id: "contact",
       title: "Contact",
-    },
+    }
   ];
   
   const services = [
     {
-      title: "Web Developer",
-      icon: web,
-      link:'https://github.com/starrylight90',
+      title: "Summer of Growth @ Maersk",
+      icon: "https://media.licdn.com/dms/image/v2/D4D22AQHuXo5Xxtw8dg/feedshare-shrink_800/B4DZdAd4sXGUAo-/0/1749133266342?e=1753920000&v=beta&t=qQZRF90CFBUSjxhG5noJIi76qet28tdeP1D214U18hY",          
+      link: "https://www.linkedin.com/posts/skp2208_a-summer-of-growth-gratitude-great-activity-7336396666595389445--F73?utm_source=share&utm_medium=member_desktop&rcm=ACoAADoIHWgBVofiJ-OrblGTimTYfIt7EdizYFI", 
     },
     {
-      title: "Python Enthusiast",
-      icon: mobile,
-      link:'https://github.com/starrylight90?tab=repositories&q=&type=&language=jupyter+notebook',
-    },
-    {
-      title: "Backend Developer",
-      icon: backend,
-      link:'https://github.com/starrylight90',
+      title: "SIT Feedback System Journey",
+      icon: sitdisplay,   
+      link: "https://www.linkedin.com/posts/skp2208_gratitude-learningjourney-teamwork-activity-7159571826287820800-qZ5q?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADoIHWgBVofiJ-OrblGTimTYfIt7EdizYFI", 
     },
     {
       title: "Content Creator",
-      icon: creator,
-      link:'https://www.medium.com/@swayam.pendgaonkar',
+      icon: "https://cdn.sanity.io/images/tkl0o0xu/production/5ca2d53e2ed3a58e120776245c20da44b01424af-512x512.png?fit=min&w=380&h=280&dpr=1&q=95",           
+      link: "https://medium.com/@swayam.pendgaonkar",
+    },
+    {
+      title: "Accessible Tech Builder",
+      icon: veda,      
+      link: "https://vedaatech.com", 
     },
   ];
   
+  
   const technologies = [
     {
-      name: "HTML 5",
-      icon: html,
-    },
-    {
-      name: "CSS 3",
-      icon: css,
-    },
-    {
-      name: "JavaScript",
-      icon: javascript,
+      name: "Java",
+      icon: java,
     },
     {
       name: "Python",
       icon: python,
     },
     {
-      name: "React JS",
+      name: "React.js",
       icon: reactjs,
     },
     {
-      name: "PHP",
-      icon: php,
-    },
-    {
-      name: "Tailwind CSS",
-      icon: tailwind,
-    },
-    {
-      name: "Node JS",
+      name: "Node.js",
       icon: nodejs,
+    },
+    {
+      name: "FastAPI",
+      icon: fastapi,
+    },
+    {
+      name: "Flutter",
+      icon: flutter,
+    },
+    {
+      name: "Docker",
+      icon: docker,
+    },
+    {
+      name: "Kubernetes",
+      icon: kubernetes,
     },
     {
       name: "MongoDB",
       icon: mongodb,
     },
     {
-      name: "Three JS",
-      icon: threejs,
-    },
-    {
-      name: "git",
-      icon: git,
-    },
-    {
-      name: "figma",
-      icon: figma,
-    },
-    {
-      name: "MYSQL",
+      name: "MySQL",
       icon: mysql,
     },
+    {
+      name: "TypeScript",
+      icon: typescript,
+    },
+    {
+      name: "TensorFlow Lite",
+      icon: tflite, 
+    },
+    {
+      name: "GitHub",
+      icon: github, 
+    },
   ];
-  
+
   const experiences = [
     {
-      title: "React.js Developer",
-      company_name: "Self",
-      icon: logo,
+      title: "Associate Software Engineer",
+      company_name: "A.P. Moller Maersk",
+      icon: apmm,
       iconBg: "#383E56",
-      date: "May 2023 - May 2023",
+      date: "July 2025 - Present",
       points: [
-        "Created an engaging user interface with React.js to showcase personal projects and skills.",
-        "Implemented responsive design techniques to ensure optimal performance on various devices and screen sizes.",
-        "Independently planned and executed the entire development process of the portfolio website.",
-        "Demonstrated a keen eye for design by crafting a visually impressive portfolio that reflects personal style and professionalism.",
-      ],
+        "Built a high-throughput data module handling over 1 million records per run, powering core operations at global scale.",
+        "Designed real-time backend systems using Java and SQL, ensuring speed, fault-tolerance, and zero data loss.",
+        "Deployed FastAPI services in Docker/Kubernetes environments, cutting release cycles by 60% and easing cross-team integration.",
+        "Improved mobile app performance by 40% with Flutter/Dart, enhancing user experience and daily usage metrics.",
+      ],         
     },
     {
-      title: "Lead Software Developer",
-      company_name: "Symbiosis Institute of Technology",
-      icon: tesla,
-      iconBg: "#E6DEDD",
-      date: "March 2023 - Present",
-      points: [
-        "Successfully developed and executed a faculty feedback system across the entire Symbiosis College.",
-        "Collaborated with key stakeholders to gather and analyze data after feedback collection, resulting in a 25% increase in overall satisfaction with the new system",
-        "Led a cross-functional team of designers, developers, and educators to launch this new product.",
-        "Developed a secure login system using industry best practices and encryption techniques to safeguard user data.",
-      ],
-    },
-    {
-      title: "Head of Operations",
-      company_name: "Frameskip",
-      icon: frameskip,
+      title: "Founder & CTIO",
+      company_name: "VEDA (vedaatech.com)",
+      icon: veda,
       iconBg: "#383E56",
-      date: "Sept 2022 - Present",
+      date: "December 2024 - Present",
       points: [
-        "Optimized operational efficiency by implementing new procedures and systems.",
-        "Led a team of 12 colleagues and managed day-to-day operations, successfully completing multiple projects on time and within budget.",
-        "Developed and implemented company policies and procedures to ensure compliance with industry standards and regulations.",
-        "Fostered a positive and collaborative work environment by encouraging open communication and providing mentorship and guidance to team members.",
-      ],
+        "Building an AI-powered navigation device for blind and deaf-blind users using on-device object detection and tactile Braille feedback.",
+        "Developed an MVP that is 80× more affordable than US alternatives, priced at just ₹5,000 (~$60).",
+        "Leading a 5-member team through product development, pilot testing, and patent filing.",
+        "Partnering with Pune University’s Accessibility Department to co-design and test with real users.",
+      ],      
     },
     {
-      title: "Head of Ideas and Operations",
-      company_name: "OFFMind (NPO)",
-      icon: offmind,
+      title: "Technical Project Manager (Part-time)",
+      company_name: "Science To People",
+      icon: s2,
       iconBg: "#E6DEDD",
-      date: "Sept 2022 - Present",
+      date: "June 2025 - Present",
       points: [
-        "Developed and executed a strategic plan to establish partnerships with other NGOs, resulting in expanded services for underprivileged children in Pune.",
-        "Managed daily operations and provided leadership to a team of volunteers, resulting in increased productivity and efficiency.",
-        "Led the organization's efforts in fundraising, resulting in a 30% increase in donations.",
-        "Participating in policy reviews and providing constructive feedback to other volunteers.",
-      ],
+        "Managing product strategy for an LLM-powered public health platform focused on trust and science communication.",
+        "Leading technical execution across feature scoping, delivery sprints, and performance benchmarking.",
+        "Collaborating cross-functionally with advisors, researchers, and designers in a globally distributed team.",
+        "Driving roadmap decisions for AI-driven modules, improving reliability and user engagement.",
+      ],      
+    },
+    {
+      title: "Former CTO",
+      company_name: "Project Human City (PHC)",
+      icon: phc,
+      iconBg: "#E6DEDD",
+      date: "May 2023 - May 2025",
+      points: [
+        "Scaled a 125-person engineering team across 10 squads to deliver social-good tech solutions at scale.",
+        "Launched 3 flagship products and 4 AI microservices addressing urban equity and public health.",
+        "Built the tech foundation that helped secure over $300K in grants and institutional partnerships.",
+        "Led architecture, team hiring, and Agile delivery processes in a high-growth environment.",
+      ],      
     },
   ];
   
   const testimonials = [
     {
       testimonial:
-        "I thought it was impossible to make a website as beautiful as our product, but Swayam proved me wrong.",
-      name: "Sara Lee",
-      designation: "CFO",
-      company: "Acme Co",
-      image: "https://randomuser.me/api/portraits/women/4.jpg",
+       "Swayam is a driven and resourceful leader. As CTO, he guided over 100 volunteers with ingenuity and clarity, leaving a lasting impact at Project: Human City.",
+      name: "James Rhule",
+      designation: "CIO",
+      company: "Project Human City",
+      image: phc,
     },
     {
       testimonial:
-        "I've never met a web developer who truly cares about their clients' success like Swayam does.",
-      name: "Chris Brown",
-      designation: "COO",
-      company: "DEF Corp",
-      image: "https://randomuser.me/api/portraits/men/5.jpg",
+        "Swayam is not only a great leader but also an exceptional mentor. His clarity, precision, and willingness to help made working with him a fantastic experience.",
+      name: "Shreyas Tambe",
+      designation: "Junior Developer",
+      company: "Symbiosis Institute of Technology",
+      image: sitpune,
     },
     {
       testimonial:
-        "After Swayam optimized our website, our traffic increased by 50%. We can't thank him enough!",
-      name: "Lisa Wang",
-      designation: "CTO",
-      company: "456 Enterprises",
-      image: "https://randomuser.me/api/portraits/women/6.jpg",
+       "Swayam is reliable, respectful, and never procrastinates. He communicates clearly and delivers on time—everything you want in a teammate.",
+      name: "Yajushreshtha Shukla",
+      designation: "Leader, Enterpreneur",
+      company: "Yaju Industries",
+      image: "https://avatars.githubusercontent.com/u/97739937?v=4",
     },
   ];
   
   const projects = [
     {
-      name: "Feedback System",
+      name: "SkillSwap Web App",
       description:
-        "Web-based faculty feedback system enabling secure collection and analysis of feedback from students. Provides meaningful results to enhance academic coordination.",
+        "A peer-to-peer learning platform where users can swipe and match based on skills they want to teach or learn. Think Coursera meets Tinder — mutual learning, one skill at a time.",
       tags: [
-        {
-          name: "PHP",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "JS",
-          color: "green-text-gradient",
-        },
-        {
-          name: "MYSQL",
-          color: "pink-text-gradient",
-        },
+        { name: "React", color: "blue-text-gradient" },
+        { name: "Node.js", color: "green-text-gradient" },
+        { name: "MongoDB", color: "pink-text-gradient" },
       ],
-      image: feedback_system,
-      source_code_link: "https://github.com/starrylight90",
+      image: "https://cdn.dorahacks.io/static/files/18b3cd3807dd78882724baa420682a47.png", 
+      source_code_link: "https://github.com/starrylight90/skillswap-webapp",
     },
     {
-      name: "Object Detection",
+      name: "CollabNGO",
       description:
-        "This project contains the TensorFlow Object Detection Machine Learning model. It is based on the labelimg and tensorflow model zoo.",
+        "A central hub for NGO events and impact stories. Enables citizens to discover, attend, and contribute to verified causes in their locality, while NGOs can post events and spread awareness.",
       tags: [
-        {
-          name: "Python",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "Tensorflow",
-          color: "green-text-gradient",
-        },
-        {
-          name: "OpenCV",
-          color: "pink-text-gradient",
-        },
+        { name: "JavaScript", color: "blue-text-gradient" },
+        { name: "Google Maps API", color: "green-text-gradient" },
+        { name: "Node.js", color: "pink-text-gradient" },
       ],
-      image: object_detection,
-      source_code_link: "https://github.com/starrylight90/Custom-Object-Detection-TFOD-2.0",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIJnrzgzPb3t3L4DaWoj4_GsDNLeymyZWIcA&s", 
+      source_code_link: "https://github.com/starrylight90/CollabNGO",
     },
     {
-      name: "Neural Network",
+      name: "Life Expectancy Prediction",
       description:
-        "This is a neural network from scratch without using TensorFlow or PyTorch just NumPy and math. It is a 28 x 28 handwritten image which is classified and then tagged.",
+        "A data-driven ML project analyzing WHO datasets to predict life expectancy. Focused on understanding health patterns across nations using linear regression and feature engineering.",
       tags: [
-        {
-          name: "Neurals",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "ML",
-          color: "green-text-gradient",
-        },
-        {
-          name: "Jupyter Notebook",
-          color: "pink-text-gradient",
-        },
+        { name: "Python", color: "blue-text-gradient" },
+        { name: "Pandas", color: "green-text-gradient" },
+        { name: "ML", color: "pink-text-gradient" },
       ],
-      image: mnnist,
-      source_code_link: "https://github.com/starrylight90/MNIST-from-scratch",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-tGlo4k8Fsz3gi3KWuvKQMLXBj38Q8llqsA&s", 
+      source_code_link: "https://github.com/starrylight90/Life-Expectancy-Prediction-using-Linear-Regression",
     },
   ];
   

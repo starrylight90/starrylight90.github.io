@@ -4,24 +4,24 @@ Cinematic React + Vite portfolio, deployed to GitHub Pages.
 
 ## Deployment model used
 
-This repository is configured to deploy with GitHub Actions.
+This repository is configured to deploy from a branch.
 
-- Branch to use: main
-- Pages source to choose in GitHub: GitHub Actions
-- Folder choice: not needed (do not use root/docs mode for this setup)
+- Source branch: deployment
+- Folder: /(root)
+- Working branch for source code: main
 
 ## Why this setup
 
-- Keeps source code in branch clean
-- Does not commit dist output
-- Avoids pushing node_modules or other local artifacts
-- Produces reliable deployments on every push to main
+- Keeps all source code on main
+- Publishes only compiled static files to deployment
+- Avoids committing node_modules
 
 ## One-time GitHub setup
 
 1. Open repository Settings -> Pages
 2. Under Build and deployment:
-3. Set Source to GitHub Actions
+3. Set Source to Deploy from a branch
+4. Set Branch to deployment and folder to /(root)
 4. Save
 
 ## Local build check
@@ -40,20 +40,35 @@ git init
 git branch -M main
 git remote add origin https://github.com/starrylight90/starrylight90.github.io.git
 git add .
-git commit -m "Set up Vite portfolio for GitHub Pages deployment"
+git commit -m "Set up portfolio source"
 git push -u origin main
 ```
 
-If git remote already exists, run:
+Then publish the build to deployment:
+
+```powershell
+npm run build
+git checkout deployment
+git rm -r .
+Copy-Item -Path .\dist\* -Destination .\ -Recurse -Force
+Set-Content -Path .gitignore -Value "node_modules"
+if (-not (Test-Path .\.nojekyll)) { New-Item -ItemType File -Path .\.nojekyll | Out-Null }
+git add -A
+git commit -m "Deploy latest portfolio build"
+git push origin deployment
+git checkout main
+```
+
+If git remote already exists and you are only updating source on main:
 
 ```powershell
 git add .
-git commit -m "Update portfolio and deployment workflow"
-git push
+git commit -m "Update portfolio source"
+git push origin main
 ```
 
 ## Notes
 
-- node_modules and dist are ignored by .gitignore
+- node_modules and dist are ignored on main via .gitignore
 - Resume is served from public/Swayam_Pendgaonkar_Resume_SoftwareEngineer.pdf
 - Site URL: https://starrylight90.github.io/

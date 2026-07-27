@@ -180,6 +180,27 @@ button {
   margin: 4px 0 22px;
 }
 
+.project-pager {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  margin: -6px 0 18px;
+}
+
+.project-page-indicator {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(242, 244, 248, 0.75);
+}
+
+.project-pager-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .project-detail-grid article {
   border: 1px solid rgba(220, 200, 161, 0.34);
   border-radius: 14px;
@@ -234,6 +255,13 @@ h1 {
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
 }
 
+.about-hero-title {
+  font-size: clamp(30px, 3.8vw, 58px);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+}
+
 .section-copy {
   margin: 18px 0 24px;
   color: rgba(245, 245, 245, 0.92);
@@ -259,6 +287,12 @@ h1 {
 .section-button:hover {
   transform: translateY(-1px);
   background: rgba(255, 242, 212, 0.96);
+}
+
+.section-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  transform: none;
 }
 
 .trickle-idle .trickle-line {
@@ -398,7 +432,19 @@ h1 {
     grid-template-columns: 1fr;
   }
 
+  .project-pager {
+    justify-content: space-between;
+  }
+
+  .project-pager-actions {
+    margin-left: auto;
+  }
+
   h1 {
     font-size: clamp(40px, 13vw, 62px);
+  }
+
+  .about-hero-title {
+    font-size: clamp(26px, 8.4vw, 42px);
   }
 }

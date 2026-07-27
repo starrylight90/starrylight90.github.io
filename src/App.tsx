@@ -14,7 +14,7 @@ type Section = {
 
 type AboutView = 'summary' | '01a' | '01b' | '01c'
 type ExperienceView = 'summary' | '02a' | '02b' | '02c'
-type ProjectsView = 'summary' | '03a' | '03aa' | '03ab'
+type ProjectsView = 'summary' | '03a'
 type SkillsView = 'summary' | 'expanded'
 type ContactView = 'summary' | 'expanded'
 
@@ -29,11 +29,18 @@ type SectionViews = {
 type SectionId = keyof SectionViews
 type TricklePhase = 'idle' | 'out' | 'in'
 
+type ProjectCard = {
+  name: string
+  oneLiner: string
+  details: string
+  repo: string
+}
+
 const sections: Section[] = [
   {
     id: 'about',
     number: '01',
-    title: 'Who I Am',
+    title: 'WHO I AM',
     body: "I'm a software engineer who enjoys turning ambitious ideas into systems that scale. From AI-powered healthcare to distributed infrastructure and enterprise logistics, I've always been drawn to problems where architecture matters as much as implementation.",
     button: 'Continue the Journey',
   },
@@ -48,7 +55,7 @@ const sections: Section[] = [
     id: 'projects',
     number: '03',
     title: 'Featured Projects',
-    body: 'Two engineering projects that represent how I think about building software. Each explores a different challenge and is presented as a complete engineering case study.',
+    body: 'A systems-first project arc, ordered to highlight AI infrastructure, distributed reliability, and product range.',
     button: 'Explore Case Studies',
   },
   {
@@ -68,6 +75,46 @@ const sections: Section[] = [
 ]
 
 const transitionMs = 520
+const projectsPerPage = 2
+
+const featuredProjects: ProjectCard[] = [
+  {
+    name: 'Distill',
+    oneLiner: 'A drop-in AI gateway that cuts LLM spend without touching a single line of client code.',
+    details:
+      'Four-layer cost reduction via exact cache, semantic cache with pgvector, prompt compression, and cost-aware model routing with automatic escalation.',
+    repo: 'distill',
+  },
+  {
+    name: 'Ledger',
+    oneLiner:
+      'An event-driven order processing platform built to survive failure, not just handle the happy path.',
+    details:
+      'Saga compensations, retries and DLQs, schema contracts, selective gRPC sync boundaries, and full observability across service hops.',
+    repo: 'ledger',
+  },
+  {
+    name: 'Pulse',
+    oneLiner: 'Distributed real-time communication platform.',
+    details:
+      'Multi-instance WebSocket delivery with Redis Pub/Sub, presence, receipts, reconnect state sync, and horizontal scaling behavior.',
+    repo: 'pulse',
+  },
+  {
+    name: 'URL Shortener',
+    oneLiner: 'Production-ready distributed URL shortener.',
+    details:
+      'Built around cache-aside performance, TTL behavior, regional routing, and resilient traffic handling under load.',
+    repo: 'url-shortener',
+  },
+  {
+    name: 'Airlock',
+    oneLiner: 'A local-first file toolkit where every operation runs in-browser and nothing uploads.',
+    details:
+      'Ships as hosted app and self-contained offline HTML, including browser ML background removal and batch ZIP packaging.',
+    repo: 'airlock',
+  },
+]
 
 const summaryViews: SectionViews = {
   about: 'summary',
@@ -116,14 +163,6 @@ function viewsFromHash(hash: string): SectionViews {
     return { ...summaryViews, projects: '03a' }
   }
 
-  if (normalized === '#/projects/pulse') {
-    return { ...summaryViews, projects: '03aa' }
-  }
-
-  if (normalized === '#/projects/url-shortener') {
-    return { ...summaryViews, projects: '03ab' }
-  }
-
   if (normalized === '#/skills') {
     return { ...summaryViews, skills: 'expanded' }
   }
@@ -157,6 +196,7 @@ function App() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [views, setViews] = useState<SectionViews>(() => viewsFromHash(window.location.hash))
   const [targetViews, setTargetViews] = useState<SectionViews>(() => viewsFromHash(window.location.hash))
+  const [projectPage, setProjectPage] = useState(0)
   const [phases, setPhases] = useState<Record<SectionId, TricklePhase>>({
     about: 'idle',
     experience: 'idle',
@@ -329,6 +369,16 @@ function App() {
     window.location.hash = hash
   }
 
+  const openProjectRepo = (repo: string) => {
+    window.open(`https://github.com/starrylight90/${repo}`, '_blank', 'noopener,noreferrer')
+  }
+
+  const projectPageCount = Math.ceil(featuredProjects.length / projectsPerPage)
+  const pagedProjects = featuredProjects.slice(
+    projectPage * projectsPerPage,
+    projectPage * projectsPerPage + projectsPerPage,
+  )
+
   return (
     <div className="journey-page" ref={rootRef}>
       <header className="journey-nav">
@@ -377,7 +427,7 @@ function App() {
                       {views.about === 'summary' ? (
                         <>
                           <p className="section-number trickle-line">{section.number}</p>
-                          <h1 className="trickle-line">{section.title}</h1>
+                          <h1 className="trickle-line about-hero-title">Swayam Pendgaonkar</h1>
                           <p className="section-copy trickle-line">{section.body}</p>
                           <button className="section-button trickle-line" onClick={() => openHash('#/about')}>
                             {section.button}
@@ -605,68 +655,60 @@ function App() {
                       <>
                         <p className="section-number trickle-line">03A</p>
                         <h1 className="trickle-line">Engineering</h1>
-                        <p className="section-copy trickle-line">
-                          Pulse and URL Shortener are presented as complete engineering case studies.
-                        </p>
 
                         <div className="project-detail-grid trickle-line">
-                          <article>
-                            <h2>Pulse</h2>
-                            <p>Distributed Real-Time Communication Platform</p>
-                            <button className="section-button" onClick={() => openHash('#/projects/pulse')}>
-                              Open 03AA
-                            </button>
-                          </article>
-                          <article>
-                            <h2>URL Shortener</h2>
-                            <p>Production-ready Distributed URL Shortener</p>
+                          {pagedProjects.map((project) => (
+                            <article key={project.name}>
+                              <h2>{project.name}</h2>
+                              <p>{project.oneLiner}</p>
+                              <p>{project.details}</p>
+                              <button
+                                className="section-button"
+                                onClick={() => openProjectRepo(project.repo)}
+                              >
+                                Link
+                              </button>
+                            </article>
+                          ))}
+                        </div>
+
+                        <div className="project-pager trickle-line">
+                          <span className="project-page-indicator">
+                            Page {projectPage + 1} / {projectPageCount}
+                          </span>
+                          <div className="project-pager-actions">
                             <button
                               className="section-button"
-                              onClick={() => openHash('#/projects/url-shortener')}
+                              onClick={() => setProjectPage((prev) => Math.max(0, prev - 1))}
+                              disabled={projectPage === 0}
                             >
-                              Open 03AB
+                              Previous
                             </button>
-                          </article>
+                            <button
+                              className="section-button"
+                              onClick={() =>
+                                setProjectPage((prev) => Math.min(projectPageCount - 1, prev + 1))
+                              }
+                              disabled={projectPage >= projectPageCount - 1}
+                            >
+                              Next
+                            </button>
+                          </div>
                         </div>
 
                         <button className="section-button trickle-line" onClick={() => openHash('#/')}>
                           Back to Journey
                         </button>
                       </>
-                    ) : views.projects === '03aa' ? (
-                      <>
-                        <p className="section-number trickle-line">03AA</p>
-                        <h1 className="trickle-line">Pulse</h1>
-                        <p className="section-copy trickle-line">
-                          Distributed Real-Time Communication Platform. Pulse explores reliability,
-                          scalability, and cross-instance delivery beyond a single-server chat app.
-                        </p>
-                        <p className="section-copy trickle-line">
-                          Architecture: FastAPI, WebSockets, Redis Pub/Sub, PostgreSQL, Docker, Nginx, JWT.
-                        </p>
-                        <p className="section-copy trickle-line">
-                          Highlights: reconnect sync, presence, receipts, metrics, and horizontal scaling.
-                        </p>
-                        <button className="section-button trickle-line" onClick={() => openHash('#/projects')}>
-                          Back to 03A
-                        </button>
-                      </>
                     ) : (
                       <>
-                        <p className="section-number trickle-line">03AB</p>
-                        <h1 className="trickle-line">Distributed URL Shortener</h1>
+                        <p className="section-number trickle-line">03A</p>
+                        <h1 className="trickle-line">Engineering</h1>
                         <p className="section-copy trickle-line">
-                          A production-inspired service focused on caching, regional routing, analytics, and
-                          resilience under traffic.
+                          This section has one expanded view. Use Back to Journey to continue.
                         </p>
-                        <p className="section-copy trickle-line">
-                          Architecture: Node.js, Express, Redis, SQLite, Nginx, Docker, regional routing.
-                        </p>
-                        <p className="section-copy trickle-line">
-                          Highlights: cache-aside pattern, load balancing, TTL support, health monitoring.
-                        </p>
-                        <button className="section-button trickle-line" onClick={() => openHash('#/projects')}>
-                          Back to 03A
+                        <button className="section-button trickle-line" onClick={() => openHash('#/')}>
+                          Back to Journey
                         </button>
                       </>
                     )}
